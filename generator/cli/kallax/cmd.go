@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"os"
 
-	"gopkg.in/src-d/go-kallax.v1/generator/cli/kallax/cmd"
+	"github.com/loyalguru/go-kallax/generator/cli/kallax/cmd"
 
-	"gopkg.in/urfave/cli.v1"
+	"github.com/urfave/cli"
 )
 
-const version = "1.3.5"
+const version = "1.3.8"
 
 func main() {
 	if err := newApp().Run(os.Args); err != nil {
@@ -26,8 +26,8 @@ func newApp() *cli.App {
 	app.Flags = cmd.Generate.Flags
 	app.Action = cmd.Generate.Action
 	app.Commands = cli.Commands{
-		&cmd.Generate,
-		&cmd.Migrate,
+		cmd.Generate,
+		cmd.Migrate,
 	}
 
 	return app
